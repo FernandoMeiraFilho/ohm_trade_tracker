@@ -49,7 +49,7 @@ const main = async () => {
   const ohmInitialBalance = BigNumber.from(OHM_INITIAL_BALANCE);
   const ohmCurrentBalance = await sOhmToken.balanceOf(ETH_ADDRESS);
   const ohmDecimals = await ohmToken.decimals();
-  const sOhmDecimals = await sOhmToken.decimals();
+  //   const sOhmDecimals = await sOhmToken.decimals();
 
   //0x price Api
   const zero0query = `swap/v1/price?sellToken=${ohmAddress}&buyToken=${lusdAddress}&sellAmount=${BigNumber.from(
