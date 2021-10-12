@@ -109,7 +109,6 @@ const main = async () => {
     `\n **OHMs owned after debt **: ${finalData.ohmsOwned}` +
     `\n\n__**## Profit Summary ##**__ \n` +
     `\n **Number of days invested**: ${Math.round(finalData.daysInvested)}` +
-    `\n **Number of days invested**: ${Math.round(finalData.daysInvested)}` +
     `\n **LUSD debt - OHM value (spot)**: $ ${finalData.currentNetProfit.toLocaleString(
       "en-US"
     )}` +
