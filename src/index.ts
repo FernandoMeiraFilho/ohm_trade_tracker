@@ -128,6 +128,8 @@ const main = async () => {
   };
 
   await axios.post(DISCORD_CHANNEL_WEBHOOK_URL, message);
+
+  console.log("MESSAGE SENT!");
 };
 
 main();
