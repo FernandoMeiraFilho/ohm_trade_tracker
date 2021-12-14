@@ -9,15 +9,17 @@ import {
 } from "./env";
 import TroveManagerABI from "./ethereum/abi/troveManager.json";
 import LiquityPriceFeedABI from "./ethereum/abi/liquityPriceFree.json";
-import sOHMABI from "./ethereum/abi/sOHM.json";
+// import sOHMABI from "./ethereum/abi/sOHM.json";
 import ohmABI from "./ethereum/abi/OHM.json";
+import gOhmABI from "./ethereum/abi/gOHM.json";
 import {
   bg16,
   bg7,
   liquityPriceFeedAddress,
   lusdAddress,
   ohmAddress,
-  sOhmAddress,
+  // sOhmAddress,
+  gOhmAddress,
   troveManagerAddress,
   zeroXapiUrl,
 } from "./constants";
@@ -37,8 +39,9 @@ const main = async () => {
     LiquityPriceFeedABI,
     provider
   );
-  const sOhmToken = await new Contract(sOhmAddress, sOHMABI, provider);
+  // const sOhmToken = await new Contract(sOhmAddress, sOHMABI, provider);
   const ohmToken = await new Contract(ohmAddress, ohmABI, provider);
+  const gOhmToken = await new Contract(gOhmAddress, gOhmABI, provider);
 
   // Liquity data
   const ethPrice = await liquityPriceFeed.lastGoodPrice();
@@ -47,7 +50,8 @@ const main = async () => {
 
   //   // OHM data
   const ohmInitialBalance = BigNumber.from(OHM_INITIAL_BALANCE);
-  const ohmCurrentBalance = await sOhmToken.balanceOf(ETH_ADDRESS);
+  const currentGohmBalance = await gOhmToken.balanceOf(ETH_ADDRESS);
+  const ohmCurrentBalance = await gOhmToken.balanceFrom(currentGohmBalance);
   const ohmDecimals = await ohmToken.decimals();
   //   const sOhmDecimals = await sOhmToken.decimals();
 
